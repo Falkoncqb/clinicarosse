@@ -1246,7 +1246,7 @@ body {
 }
 .doctor-videos-title em { font-weight: 300; }
 .doctor-videos-intro { margin-top: 1rem; color: var(--tinta-muted); }
-.doctor-videos-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 2.5rem); }
+.doctor-videos-grid { display: grid; grid-template-columns: minmax(0, 540px); justify-content: center; gap: 0; }
 .doctor-video-card {
   min-width: 0;
   overflow: hidden;
