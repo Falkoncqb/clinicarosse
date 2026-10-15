@@ -14,11 +14,11 @@
   --dorado: #b88e4c;
   --dorado-hover: #a37937;
 
-  /* Dorado champán sólido para los botones */
-  --boton-dorado: #d4af62;
-  --boton-dorado-hover: #dfbd78;
-  --boton-dorado-borde: #bd974b;
-  --boton-dorado-texto: #282016;
+  /* Azul sólido para los botones */
+  --boton-acento: #2596be;
+  --boton-acento-hover: #3ba5c9;
+  --boton-acento-borde: #2184a7;
+  --boton-acento-texto: #111014;
 
   --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: 'Melodrama', Georgia, serif;
@@ -150,16 +150,16 @@ body {
   align-items: center;
   gap: 0.6rem;
   padding: 0.7rem 1.6rem;
-  background: var(--boton-dorado);
-  color: var(--boton-dorado-texto);
+  background: var(--boton-acento);
+  color: var(--boton-acento-texto);
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 500;
   letter-spacing: 0.025em;
   border-radius: 999px;
-  border: 1px solid var(--boton-dorado-borde);
-  box-shadow: 0 4px 12px -5px rgba(112, 81, 27, 0.22);
+  border: 1px solid var(--boton-acento-borde);
+  box-shadow: 0 4px 12px -5px rgba(20, 71, 89, 0.22);
   transition: transform 0.3s var(--ease-editorial),
               background-color 0.3s var(--ease-editorial),
               box-shadow 0.3s var(--ease-editorial);
@@ -168,9 +168,9 @@ body {
 
 .nav-cta-btn:hover {
   transform: translateY(-1px);
-  background: var(--boton-dorado-hover);
-  color: var(--boton-dorado-texto);
-  box-shadow: 0 8px 20px -8px rgba(112, 81, 27, 0.28);
+  background: var(--boton-acento-hover);
+  color: var(--boton-acento-texto);
+  box-shadow: 0 8px 20px -8px rgba(20, 71, 89, 0.28);
 }
 
 .nav-cta-btn .cta-btn-arrow {
@@ -492,23 +492,23 @@ body {
   padding-top: 0.25rem;
 }
 
-/* Botón principal dorado (Sección 1) */
+/* Botón principal azul (Sección 1) */
 .cta-button.primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.85rem;
   padding: 1.15rem 2.6rem;
-  background: var(--boton-dorado);
-  color: var(--boton-dorado-texto);
+  background: var(--boton-acento);
+  color: var(--boton-acento-texto);
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   border-radius: 999px;
-  border: 1px solid var(--boton-dorado-borde);
-  box-shadow: 0 4px 12px -5px rgba(112, 81, 27, 0.22);
+  border: 1px solid var(--boton-acento-borde);
+  box-shadow: 0 4px 12px -5px rgba(20, 71, 89, 0.22);
   transition: transform 0.35s var(--ease-editorial),
               background-color 0.35s var(--ease-editorial),
               box-shadow 0.35s var(--ease-editorial);
@@ -517,32 +517,32 @@ body {
 
 .cta-button.primary:hover {
   transform: translateY(-2px);
-  background: var(--boton-dorado-hover);
-  color: var(--boton-dorado-texto);
-  box-shadow: 0 8px 20px -8px rgba(112, 81, 27, 0.28);
+  background: var(--boton-acento-hover);
+  color: var(--boton-acento-texto);
+  box-shadow: 0 8px 20px -8px rgba(20, 71, 89, 0.28);
 }
 
 .cta-button.primary:hover .cta-arrow {
   transform: translateX(4px);
 }
 
-/* Botones secundarios dorados con texto de alto contraste */
+/* Botones secundarios azules con texto de alto contraste */
 .cta-subtle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
   padding: 0.95rem 2.2rem;
-  background: var(--boton-dorado);
-  color: var(--boton-dorado-texto);
+  background: var(--boton-acento);
+  color: var(--boton-acento-texto);
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: 0.03em;
   border-radius: 999px;
-  border: 1px solid var(--boton-dorado-borde);
-  box-shadow: 0 4px 12px -5px rgba(112, 81, 27, 0.22);
+  border: 1px solid var(--boton-acento-borde);
+  box-shadow: 0 4px 12px -5px rgba(20, 71, 89, 0.22);
   transition: transform 0.35s var(--ease-editorial),
               background-color 0.35s var(--ease-editorial),
               box-shadow 0.35s var(--ease-editorial);
@@ -551,9 +551,9 @@ body {
 
 .cta-subtle:hover {
   transform: translateY(-2px);
-  background: var(--boton-dorado-hover);
-  color: var(--boton-dorado-texto);
-  box-shadow: 0 8px 20px -8px rgba(112, 81, 27, 0.28);
+  background: var(--boton-acento-hover);
+  color: var(--boton-acento-texto);
+  box-shadow: 0 8px 20px -8px rgba(20, 71, 89, 0.28);
 }
 
 .cta-arrow {
@@ -1002,13 +1002,13 @@ body {
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  background: var(--boton-dorado);
-  color: var(--boton-dorado-texto);
+  background: var(--boton-acento);
+  color: var(--boton-acento-texto);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px -5px rgba(112, 81, 27, 0.22);
-  border: 1px solid var(--boton-dorado-borde);
+  box-shadow: 0 4px 12px -5px rgba(20, 71, 89, 0.22);
+  border: 1px solid var(--boton-acento-borde);
   z-index: 100;
   text-decoration: none;
   cursor: pointer;
@@ -1019,8 +1019,8 @@ body {
 
 .whatsapp-float:hover {
   transform: translateY(-2px);
-  background: var(--boton-dorado-hover);
-  box-shadow: 0 8px 20px -8px rgba(112, 81, 27, 0.28);
+  background: var(--boton-acento-hover);
+  box-shadow: 0 8px 20px -8px rgba(20, 71, 89, 0.28);
 }
 
 .whatsapp-float svg {
