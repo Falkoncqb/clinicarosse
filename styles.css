@@ -14,6 +14,12 @@
   --dorado: #b88e4c;
   --dorado-hover: #a37937;
 
+  /* Dorado champán sólido para los botones */
+  --boton-dorado: #d4af62;
+  --boton-dorado-hover: #dfbd78;
+  --boton-dorado-borde: #bd974b;
+  --boton-dorado-texto: #282016;
+
   --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: 'Melodrama', Georgia, serif;
 
@@ -144,27 +150,27 @@ body {
   align-items: center;
   gap: 0.6rem;
   padding: 0.7rem 1.6rem;
-  background: linear-gradient(135deg, #c59b4c 0%, #a87e34 100%);
-  color: #ffffff;
+  background: var(--boton-dorado);
+  color: var(--boton-dorado-texto);
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 500;
   letter-spacing: 0.025em;
   border-radius: 999px;
-  border: 1px solid #b88e44;
-  box-shadow: 0 6px 20px -5px rgba(168, 126, 52, 0.4);
+  border: 1px solid var(--boton-dorado-borde);
+  box-shadow: 0 4px 12px -5px rgba(112, 81, 27, 0.22);
   transition: transform 0.3s var(--ease-editorial),
-              background 0.3s var(--ease-editorial),
+              background-color 0.3s var(--ease-editorial),
               box-shadow 0.3s var(--ease-editorial);
   cursor: pointer;
 }
 
 .nav-cta-btn:hover {
   transform: translateY(-1px);
-  background: linear-gradient(135deg, #b88e42 0%, #996f26 100%);
-  color: #ffffff;
-  box-shadow: 0 10px 24px -6px rgba(168, 126, 52, 0.5);
+  background: var(--boton-dorado-hover);
+  color: var(--boton-dorado-texto);
+  box-shadow: 0 8px 20px -8px rgba(112, 81, 27, 0.28);
 }
 
 .nav-cta-btn .cta-btn-arrow {
@@ -493,62 +499,61 @@ body {
   justify-content: center;
   gap: 0.85rem;
   padding: 1.15rem 2.6rem;
-  background-color: var(--dorado);
-  background: linear-gradient(135deg, #c59b4c 0%, #a87e34 100%);
-  color: #ffffff;
+  background: var(--boton-dorado);
+  color: var(--boton-dorado-texto);
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   border-radius: 999px;
-  border: 1px solid #b88e44;
-  box-shadow: 0 10px 28px -8px rgba(168, 126, 52, 0.45);
+  border: 1px solid var(--boton-dorado-borde);
+  box-shadow: 0 4px 12px -5px rgba(112, 81, 27, 0.22);
   transition: transform 0.35s var(--ease-editorial),
-              background 0.35s var(--ease-editorial),
+              background-color 0.35s var(--ease-editorial),
               box-shadow 0.35s var(--ease-editorial);
   cursor: pointer;
 }
 
 .cta-button.primary:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #b88e42 0%, #996f26 100%);
-  color: #ffffff;
-  box-shadow: 0 16px 36px -10px rgba(168, 126, 52, 0.55);
+  background: var(--boton-dorado-hover);
+  color: var(--boton-dorado-texto);
+  box-shadow: 0 8px 20px -8px rgba(112, 81, 27, 0.28);
 }
 
 .cta-button.primary:hover .cta-arrow {
   transform: translateX(4px);
 }
 
-/* Botones de secciones 2, 3 y 4 dorados con texto blanco */
+/* Botones secundarios dorados con texto de alto contraste */
 .cta-subtle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
   padding: 0.95rem 2.2rem;
-  background: linear-gradient(135deg, #c59b4c 0%, #a87e34 100%);
-  color: #ffffff;
+  background: var(--boton-dorado);
+  color: var(--boton-dorado-texto);
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: 0.03em;
   border-radius: 999px;
-  border: 1px solid #b88e44;
-  box-shadow: 0 8px 24px -6px rgba(168, 126, 52, 0.42);
+  border: 1px solid var(--boton-dorado-borde);
+  box-shadow: 0 4px 12px -5px rgba(112, 81, 27, 0.22);
   transition: transform 0.35s var(--ease-editorial),
-              background 0.35s var(--ease-editorial),
+              background-color 0.35s var(--ease-editorial),
               box-shadow 0.35s var(--ease-editorial);
   cursor: pointer;
 }
 
 .cta-subtle:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #b88e42 0%, #996f26 100%);
-  color: #ffffff;
-  box-shadow: 0 14px 32px -8px rgba(168, 126, 52, 0.52);
+  background: var(--boton-dorado-hover);
+  color: var(--boton-dorado-texto);
+  box-shadow: 0 8px 20px -8px rgba(112, 81, 27, 0.28);
 }
 
 .cta-arrow {
@@ -997,31 +1002,31 @@ body {
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #c59b4c 0%, #a87e34 100%);
-  color: #ffffff;
+  background: var(--boton-dorado);
+  color: var(--boton-dorado-texto);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 28px -6px rgba(168, 126, 52, 0.45);
-  border: 1px solid #b88e44;
+  box-shadow: 0 4px 12px -5px rgba(112, 81, 27, 0.22);
+  border: 1px solid var(--boton-dorado-borde);
   z-index: 100;
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.35s var(--ease-editorial),
               box-shadow 0.35s var(--ease-editorial),
-              background 0.35s var(--ease-editorial);
+              background-color 0.35s var(--ease-editorial);
 }
 
 .whatsapp-float:hover {
-  transform: translateY(-3px) scale(1.04);
-  background: linear-gradient(135deg, #b88e42 0%, #996f26 100%);
-  box-shadow: 0 16px 36px -8px rgba(168, 126, 52, 0.6);
+  transform: translateY(-2px);
+  background: var(--boton-dorado-hover);
+  box-shadow: 0 8px 20px -8px rgba(112, 81, 27, 0.28);
 }
 
 .whatsapp-float svg {
   width: 27px;
   height: 27px;
-  fill: #ffffff;
+  fill: currentColor;
   transition: transform 0.35s var(--ease-editorial);
 }
 
@@ -1089,3 +1094,4 @@ body {
     transition: none !important;
   }
 }
+
