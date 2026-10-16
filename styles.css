@@ -1348,3 +1348,37 @@ body {
 .treatments-count { font-family:'Montserrat',sans-serif; font-size:.85rem; }
 @media(max-width:767px) { .treatment-card { gap:1.4rem; } .treatment-card .hero-cta-wrapper { width:100%; } }
 @media(prefers-reduced-motion:reduce) { .treatment-slide { transition:none; transform:none; } }
+
+/* Más información: subrayado dorado y respuesta burdeo */
+a.info-link-button {
+  position: relative;
+  background: transparent;
+  color: var(--tinta);
+  border: none;
+  box-shadow: none;
+  border-radius: 999px;
+  transition: background-color .25s ease, color .25s ease, transform .25s ease;
+}
+a.info-link-button::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  left: 1.6rem;
+  right: 1.6rem;
+  bottom: .35rem;
+  background: #eac85f;
+  box-shadow: 0 0 6px rgba(234, 200, 95, .65);
+  border-radius: 2px;
+  transition: opacity .2s ease;
+}
+a.info-link-button:hover,
+a.info-link-button:focus-visible,
+a.info-link-button:active {
+  background: var(--boton-burdeo);
+  color: var(--boton-burdeo-texto);
+  box-shadow: none;
+}
+a.info-link-button:hover::after,
+a.info-link-button:focus-visible::after,
+a.info-link-button:active::after { opacity: 0; }
+a.info-link-button:active { transform: translateY(0); }
