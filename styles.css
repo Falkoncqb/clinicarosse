@@ -1293,3 +1293,25 @@ body {
 .rf-title em,
 .doctor-title em,
 .doctor-videos-title em { font-style: normal; font-synthesis: none; }
+
+/* Montserrat Light: descripciones y textos secundarios */
+.section-description,
+.meta-desc,
+.brand-tagline,
+.tag-text,
+.rf-lead,
+.rf-subtitle,
+.rf-benefit-item,
+.rf-conclusion,
+.doctor-specialty,
+.doctor-role,
+.doctor-bio,
+.doctor-portrait figcaption,
+.doctor-eyebrow,
+.doctor-videos-intro,
+.footer-brand-text,
+.footer-col-text,
+.footer-bottom-bar {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 300;
+}
