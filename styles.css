@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Higuen';
+  src: url('assets/fonts/higuen-serif.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ==========================================================================
    ESTÉTICA ROSSÉ — SCROLLYTELLING INTERACTIVO
    Paleta: Papel #f4f1ea | Bordes #e9e4d8 | Tinta #111014
@@ -22,6 +30,7 @@
 
   --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: 'Melodrama', Georgia, serif;
+  --font-heading: 'Higuen', Georgia, serif;
 
   --nav-height: 80px;
   --container-max: 1540px;
@@ -63,18 +72,18 @@ body {
 }
 
 .section-title {
-  font-family: 'Melodrama', serif;
+  font-family: var(--font-heading);
   font-weight: 400;
-  line-height: 0.84;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: var(--tinta);
   text-transform: none;
 }
 
 .section-title em {
-  font-weight: 300;
-  font-style: italic;
-  font-synthesis: style;
+  font-weight: 400;
+  font-style: normal;
+  font-synthesis: none;
   display: block;
   font-feature-settings: "liga" 1, "calt" 1;
 }
@@ -813,9 +822,9 @@ body {
 }
 
 .rf-title {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-weight: 400;
-  line-height: 0.9;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: var(--tinta);
   font-size: clamp(2.8rem, 5vw, 4.6rem);
@@ -823,8 +832,8 @@ body {
 }
 
 .rf-title em {
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 400;
+  font-style: normal;
   display: block;
   font-feature-settings: "liga" 1, "calt" 1;
 }
@@ -1201,14 +1210,14 @@ body {
   flex-shrink: 0;
 }
 .doctor-title {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: clamp(2.8rem, 4.5vw, 5rem);
   font-weight: 400;
   letter-spacing: -0.035em;
   line-height: 1.05;
   margin-bottom: 1.25rem;
 }
-.doctor-title em { font-weight: 300; }
+.doctor-title em { font-weight: 400; }
 .doctor-specialty { font-size: 1.02rem; font-weight: 500; line-height: 1.5; }
 .doctor-role { margin-top: 0.35rem; font-size: 0.88rem; color: var(--tinta-muted); }
 .doctor-bio {
@@ -1238,13 +1247,13 @@ body {
 .doctor-videos-container { max-width: 1080px; margin: 0 auto; }
 .doctor-videos-heading { border-top: 1px solid var(--bordes); padding-top: 3rem; margin-bottom: 2.5rem; }
 .doctor-videos-title {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-weight: 400;
   font-size: clamp(2.4rem, 4vw, 4rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
 }
-.doctor-videos-title em { font-weight: 300; }
+.doctor-videos-title em { font-weight: 400; }
 .doctor-videos-intro { margin-top: 1rem; color: var(--tinta-muted); }
 .doctor-videos-grid { display: grid; grid-template-columns: minmax(0, 540px); justify-content: center; gap: 0; }
 .doctor-video-card {
@@ -1278,3 +1287,9 @@ body {
   .doctor-video-card { width: 100%; max-width: 540px; margin-inline: auto; }
   .doctor-video-card iframe { height: 620px; }
 }
+
+/* La fuente suministrada es Regular: evitar cursiva sintética en títulos. */
+.section-title em,
+.rf-title em,
+.doctor-title em,
+.doctor-videos-title em { font-style: normal; font-synthesis: none; }
