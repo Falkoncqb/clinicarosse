@@ -268,21 +268,10 @@ document.addEventListener('DOMContentLoaded', () => {
     sectionsSelector: '.scrolly-section'
   });
 
-  const chapter2 = createScrollyChapter({
-    wrapperId: 'scrolly-wrapper-2',
-    canvasId: 'video-canvas-2',
-    progressBarId: 'progress-bar-2',
-    metaIndexId: 'current-section-index-2',
-    metaDescId: 'current-section-desc-2',
-    framesDir: 'frames2',
-    totalFrames: 160,
-    sectionsSelector: '.scrolly-section'
-  });
 
   function handleScrollAll() {
     const h = window.innerHeight;
     if (chapter1) chapter1.onScroll(h);
-    if (chapter2) chapter2.onScroll(h);
   }
 
   window.addEventListener('scroll', handleScrollAll, { passive: true });
@@ -291,7 +280,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('visibilitychange', () => {
     const isVis = !document.hidden;
     if (chapter1) chapter1.setVisibility(isVis);
-    if (chapter2) chapter2.setVisibility(isVis);
     if (isVis) handleScrollAll();
   });
 
@@ -331,6 +319,51 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
     });
   });
+
+  // Carrusel: entrada por la izquierda y salida por la derecha cada 2 segundos.
+  const slider = document.querySelector('.treatments-slider');
+  if (slider) {
+    const slides = [...slider.querySelectorAll('.treatment-slide')];
+    const counter = slider.querySelector('.treatments-count');
+    const pauseButton = slider.querySelector('[data-slide-pause]');
+    let current = 0, paused = motionQuery.matches, hovered = false, focused = false, visible = false;
+    let timer;
+    const syncButton = () => {
+      pauseButton.textContent = paused ? 'Reanudar' : 'Pausar';
+      pauseButton.setAttribute('aria-pressed', String(paused));
+    };
+    const show = (index) => {
+      const next = (index + slides.length) % slides.length;
+      if (next === current) return;
+      slides.forEach(slide => slide.classList.remove('is-leaving'));
+      const outgoing = slides[current];
+      outgoing.classList.remove('is-active');
+      outgoing.classList.add('is-leaving');
+      outgoing.inert = true;
+      outgoing.setAttribute('aria-hidden', 'true');
+      current = next;
+      slides[current].classList.add('is-active');
+      slides[current].inert = false;
+      slides[current].setAttribute('aria-hidden', 'false');
+      counter.textContent = String(current + 1).padStart(2, '0') + ' / 04';
+    };
+    const schedule = () => {
+      clearInterval(timer);
+      if (!paused && !hovered && !focused && visible && !document.hidden)
+        timer = setInterval(() => show(current + 1), 2000);
+    };
+    slider.querySelector('[data-slide-prev]').addEventListener('click', () => { show(current - 1); schedule(); });
+    slider.querySelector('[data-slide-next]').addEventListener('click', () => { show(current + 1); schedule(); });
+    pauseButton.addEventListener('click', () => { paused = !paused; syncButton(); schedule(); });
+    slider.addEventListener('mouseenter', () => { hovered = true; schedule(); });
+    slider.addEventListener('mouseleave', () => { hovered = false; schedule(); });
+    slider.addEventListener('focusin', () => { focused = true; schedule(); });
+    slider.addEventListener('focusout', event => { focused = slider.contains(event.relatedTarget); schedule(); });
+    document.addEventListener('visibilitychange', schedule);
+    motionQuery.addEventListener('change', event => { paused = event.matches; syncButton(); schedule(); });
+    new IntersectionObserver(entries => { visible = entries[0].isIntersecting; schedule(); }, { threshold: 0.2 }).observe(slider);
+    syncButton();
+  }
 
   // Inicializar estado inicial
   handleScrollAll();

@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&amp;display=swap">
 
   <!-- Estilos principales -->
-  <link rel="stylesheet" href="styles.css?v=montserrat-medium-20261016">
+  <link rel="stylesheet" href="styles.css?v=slider-20261016">
 </head>
 <body class="section-copy">
   <!-- Cabecera fija con navegación -->
@@ -166,47 +166,11 @@
       </div>
     </div>
 
-    <!-- BLOQUE 2: Cuerpo, Capilar & Terapias (Video a la izquierda, Texto a la derecha) -->
-    <div class="scrolly-container" id="scrolly-wrapper-2">
-      <div class="scrolly-sticky">
-        
-        <!-- Capa de fondo con Canvas interactivo (izquierda) -->
-        <div class="canvas-media-wrapper canvas-left" aria-hidden="true">
-          <div class="canvas-blend-container">
-            <canvas id="video-canvas-2" class="video-scrolly-canvas" width="1280" height="720"></canvas>
-          </div>
-        </div>
-
-        <!-- Capa de UI fija de información y metadatos laterales -->
-        <div class="scrolly-ui-layer">
-          <div class="scrolly-ui-container">
-            
-            <!-- Indicador sutil de progreso de scroll -->
-            <div class="scroll-progress-track" aria-hidden="true">
-              <div class="scroll-progress-bar" id="progress-bar-2"></div>
-            </div>
-
-            <!-- Metadatos de pie fijos (Bloque 2: índice activo a la derecha) -->
-            <footer class="hero-footer-meta">
-              <div class="meta-item">
-                <span class="meta-index">Est. 2026</span>
-                <span class="meta-desc">Medicina regenerativa</span>
-              </div>
-              <div class="meta-item meta-item-right">
-                <span class="meta-index" id="current-section-index-2">01 / 04</span>
-                <span class="meta-desc" id="current-section-desc-2">Bioestimulación folicular y regeneración celular</span>
-              </div>
-            </footer>
-
-          </div>
-        </div>
-
-        <!-- Secciones de scroll por la derecha -->
-        <div class="scrolly-sections sections-right">
-
-          <!-- SECCIÓN 5: Regeneración Capilar -->
-          <section class="scrolly-section active" id="section-5" data-index="1" data-meta="Bioestimulación folicular y regeneración celular">
-            <div class="section-content-col">
+    <section class="treatments-slider" id="scrolly-wrapper-2" aria-label="Tratamientos de Clínica ROSSÉ" aria-roledescription="carrusel">
+      <div class="treatments-inner">
+        <p class="doctor-eyebrow">Cuidado personalizado · ROSSÉ</p>
+        <div class="treatments-stage"><section class="treatment-slide is-active" aria-label="1 de 4" aria-hidden="false" id="section-5" data-index="1" data-meta="Bioestimulación folicular y regeneración celular">
+            <div class="treatment-card">
               <h2 class="section-title">
                 Regeneración<br>
                 <em>capilar.</em>
@@ -224,10 +188,8 @@
               </div>
             </div>
           </section>
-
-          <!-- SECCIÓN 6: Terapias Intravenosas -->
-          <section class="scrolly-section" id="section-6" data-index="2" data-meta="Nutrición endovenosa y optimización metabólica">
-            <div class="section-content-col">
+<section class="treatment-slide" aria-label="2 de 4" inert aria-hidden="true" id="section-6" data-index="2" data-meta="Nutrición endovenosa y optimización metabólica">
+            <div class="treatment-card">
               <h2 class="section-title">
                 Terapias<br>
                 <em>intravenosas.</em>
@@ -245,10 +207,8 @@
               </div>
             </div>
           </section>
-
-          <!-- SECCIÓN 7: Tratamientos Corporales -->
-          <section class="scrolly-section" id="section-7" data-index="3" data-meta="Remodelación no invasiva y reafirmación tisular">
-            <div class="section-content-col">
+<section class="treatment-slide" aria-label="3 de 4" inert aria-hidden="true" id="section-7" data-index="3" data-meta="Remodelación no invasiva y reafirmación tisular">
+            <div class="treatment-card">
               <h2 class="section-title">
                 Tratamientos<br>
                 <em>corporales.</em>
@@ -266,10 +226,8 @@
               </div>
             </div>
           </section>
-
-          <!-- SECCIÓN 8: Controles y Retoques -->
-          <section class="scrolly-section" id="section-8" data-index="4" data-meta="Seguimiento médico y armonización continua">
-            <div class="section-content-col">
+<section class="treatment-slide" aria-label="4 de 4" inert aria-hidden="true" id="section-8" data-index="4" data-meta="Seguimiento médico y armonización continua">
+            <div class="treatment-card">
               <h2 class="section-title">
                 Controles &amp;<br>
                 <em>retoques.</em>
@@ -286,13 +244,15 @@
                 </a>
               </div>
             </div>
-          </section>
-
+          </section></div>
+        <div class="treatments-controls">
+          <button type="button" data-slide-prev aria-label="Tratamiento anterior">←</button>
+          <span class="treatments-count" aria-live="off">01 / 04</span>
+          <button type="button" data-slide-next aria-label="Tratamiento siguiente">→</button>
+          <button type="button" data-slide-pause aria-pressed="false">Pausar</button>
         </div>
-
       </div>
-    </div>
-
+    </section>
 
     <!-- Presentación profesional: después del segundo bloque -->
     <section class="doctor-section" id="section-doctor" aria-labelledby="doctor-title">
@@ -525,6 +485,6 @@
     </svg>
   </a>
 
-  <script src="main.js"></script>
+  <script src="main.js?v=slider-20261016"></script>
 </body>
 </html>

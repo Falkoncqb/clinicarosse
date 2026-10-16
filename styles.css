@@ -1325,3 +1325,22 @@ body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 500;
 }
+
+/* Carrusel de tratamientos con vidrio suave */
+.treatments-slider { position:relative; background:var(--papel); padding:clamp(3rem,6vw,6rem) var(--gutter); overflow:hidden; scroll-margin-top:var(--nav-height); }
+.treatments-slider::before { content:""; position:absolute; width:65%; height:75%; top:10%; left:-15%; background:rgba(234,200,95,.16); border-radius:50%; filter:blur(65px); pointer-events:none; }
+.treatments-inner { position:relative; max-width:1100px; margin:auto; }
+.treatments-stage { display:grid; overflow:hidden; padding:1rem; margin-inline:-1rem; }
+.treatment-slide { grid-area:1/1; min-width:0; opacity:0; visibility:hidden; transform:translateX(-105%); pointer-events:none; transition:transform .65s var(--ease-editorial),opacity .65s ease,visibility .65s; }
+.treatment-slide.is-active { opacity:1; visibility:visible; transform:translateX(0); pointer-events:auto; }
+.treatment-slide.is-leaving { opacity:0; visibility:visible; transform:translateX(105%); }
+.treatment-card { height:100%; display:flex; flex-direction:column; align-items:flex-start; gap:1.8rem; padding:clamp(2rem,5vw,4rem); background:rgba(255,255,255,.45); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,.75); border-radius:24px; box-shadow:0 12px 30px -22px rgba(17,16,20,.2); }
+.treatment-card .section-title { font-size:clamp(2.5rem,5vw,5.3rem); }
+.treatment-card .section-description { max-width:740px; }
+.treatment-card .hero-cta-wrapper { margin-top:auto; }
+.treatments-controls { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:1rem; margin-top:1.5rem; }
+.treatments-controls button { min-width:44px; min-height:44px; padding:.6rem 1rem; border:1px solid var(--boton-dorado-borde); border-radius:999px; background:var(--boton-dorado); color:var(--boton-dorado-texto); font-family:'Montserrat',sans-serif; font-weight:500; cursor:pointer; }
+.treatments-controls button:hover { background:var(--boton-dorado-hover); }
+.treatments-count { font-family:'Montserrat',sans-serif; font-size:.85rem; }
+@media(max-width:767px) { .treatment-card { gap:1.4rem; } .treatment-card .hero-cta-wrapper { width:100%; } }
+@media(prefers-reduced-motion:reduce) { .treatment-slide { transition:none; transform:none; } }
