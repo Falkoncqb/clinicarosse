@@ -1315,3 +1315,13 @@ body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 300;
 }
+
+/* Montserrat Medium en botones y enlaces de acción */
+.nav-cta-btn,
+.cta-button.primary,
+.cta-subtle,
+.doctor-video-link,
+.whatsapp-tooltip {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+}
