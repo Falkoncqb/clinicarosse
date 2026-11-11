@@ -361,40 +361,101 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inicializar estado inicial
   handleScrollAll();
 
-  // Control inteligente y reproducción eficiente para los videos clínicos (video1 y video2)
-  const showcaseVideos = document.querySelectorAll('.showcase-video');
-  if (showcaseVideos.length) {
-    showcaseVideos.forEach((video) => {
-      video.muted = true;
-      video.defaultMuted = true;
-      video.playsInline = true;
+  // Control de audio y reproducción inteligente para los videos clínicos (video1 y video2)
+  const videoCards = document.querySelectorAll('.video-card');
+  const allVideos = document.querySelectorAll('.showcase-video');
 
-      // Click o tap para pausar o reproducir
-      video.addEventListener('click', () => {
-        if (video.paused) {
+  videoCards.forEach((card) => {
+    const video = card.querySelector('.showcase-video');
+    const audioBtn = card.querySelector('.video-audio-btn');
+    if (!video) return;
+
+    // Estado inicial: silenciado para cumplir con la política de autoplay
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const updateAudioButton = () => {
+      if (!audioBtn) return;
+      if (video.muted) {
+        audioBtn.classList.add('is-muted');
+        audioBtn.setAttribute('aria-label', 'Activar sonido');
+        audioBtn.setAttribute('title', 'Activar sonido');
+        const textSpan = audioBtn.querySelector('.audio-btn-text');
+        if (textSpan) textSpan.textContent = 'Activar sonido';
+      } else {
+        audioBtn.classList.remove('is-muted');
+        audioBtn.setAttribute('aria-label', 'Silenciar video');
+        audioBtn.setAttribute('title', 'Silenciar video');
+        const textSpan = audioBtn.querySelector('.audio-btn-text');
+        if (textSpan) textSpan.textContent = 'Silenciar';
+      }
+    };
+
+    // Al pulsar el botón de audio
+    if (audioBtn) {
+      audioBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        if (video.muted) {
+          // Silenciar el otro video para que no se mezclen los audios
+          allVideos.forEach((v) => {
+            if (v !== video) {
+              v.muted = true;
+              const otherBtn = v.closest('.video-card')?.querySelector('.video-audio-btn');
+              if (otherBtn) {
+                otherBtn.classList.add('is-muted');
+                const tSpan = otherBtn.querySelector('.audio-btn-text');
+                if (tSpan) tSpan.textContent = 'Activar sonido';
+              }
+            }
+          });
+
+          video.muted = false;
+          video.play().catch(() => {});
+        } else {
+          video.muted = true;
+        }
+        updateAudioButton();
+      });
+    }
+
+    // Al hacer click directamente en el video (pausar o reanudar)
+    video.addEventListener('click', () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+
+    updateAudioButton();
+  });
+
+  // Pausar y silenciar automáticamente si el video sale de la pantalla
+  if ('IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
           video.play().catch(() => {});
         } else {
           video.pause();
+          if (!video.muted) {
+            video.muted = true;
+            const audioBtn = video.closest('.video-card')?.querySelector('.video-audio-btn');
+            if (audioBtn) {
+              audioBtn.classList.add('is-muted');
+              const tSpan = audioBtn.querySelector('.audio-btn-text');
+              if (tSpan) tSpan.textContent = 'Activar sonido';
+            }
+          }
         }
       });
-    });
+    }, { threshold: 0.25 });
 
-    if ('IntersectionObserver' in window) {
-      const videoObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target;
-          if (entry.isIntersecting) {
-            video.play().catch(() => {});
-          } else {
-            video.pause();
-          }
-        });
-      }, { threshold: 0.2 });
-
-      showcaseVideos.forEach((video) => videoObserver.observe(video));
-    } else {
-      // Fallback para navegadores antiguos
-      showcaseVideos.forEach((video) => video.play().catch(() => {}));
-    }
+    allVideos.forEach((video) => videoObserver.observe(video));
+  } else {
+    allVideos.forEach((video) => video.play().catch(() => {}));
   }
 });

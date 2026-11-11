@@ -1080,6 +1080,26 @@ body {
   .video-info-desc {
     font-size: 0.86rem;
   }
+
+  .video-badge {
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .video-audio-btn {
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 0.72rem;
+    padding: 0.35rem 0.75rem;
+    gap: 0.4rem;
+  }
+
+  .video-audio-btn svg {
+    width: 14px;
+    height: 14px;
+  }
 }
 
 /* ==========================================================================
@@ -1172,6 +1192,76 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  cursor: pointer;
+}
+
+/* Botón flotante para activar / silenciar audio */
+.video-audio-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.95rem;
+  background: rgba(17, 16, 20, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.25s var(--ease-editorial),
+              transform 0.25s var(--ease-editorial),
+              border-color 0.25s;
+}
+
+.video-audio-btn:hover {
+  background: rgba(17, 16, 20, 0.92);
+  border-color: var(--dorado);
+  transform: scale(1.04);
+}
+
+.audio-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-audio-btn svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+/* Alternancia visual entre silenciado y sonido activo */
+.video-audio-btn.is-muted .icon-unmuted {
+  display: none;
+}
+
+.video-audio-btn.is-muted .icon-muted {
+  display: block;
+  color: #ffffff;
+}
+
+.video-audio-btn:not(.is-muted) .icon-muted {
+  display: none;
+}
+
+.video-audio-btn:not(.is-muted) .icon-unmuted {
+  display: block;
+  color: #eac85f;
+}
+
+.video-audio-btn:not(.is-muted) {
+  background: rgba(17, 16, 20, 0.88);
+  border-color: var(--dorado);
+  box-shadow: 0 4px 16px -4px rgba(184, 142, 76, 0.45);
 }
 
 .video-badge {
