@@ -24,6 +24,14 @@
         </a>
       </div>
 
+      <!-- Menú de navegación sincronizado con el scroll normal -->
+      <ul class="nav-menu" id="main-nav-menu" aria-label="Servicios">
+        <li><a href="#section-1" class="nav-link active">Evaluación</a></li>
+        <li><a href="#section-2" class="nav-link">Limpieza Facial</a></li>
+        <li><a href="#section-3" class="nav-link">Medicina Estética</a></li>
+        <li><a href="#section-4" class="nav-link">Inyectables</a></li>
+      </ul>
+
       <div class="nav-actions">
         <a href="https://clinicaesteticarosse.site.agendapro.com/cl/sucursal/438769" target="_blank" rel="noopener noreferrer" class="nav-cta-btn" id="nav-btn-agenda">
           <span class="cta-btn-text">Agenda tu atención aquí</span>
@@ -35,326 +43,413 @@
   </header>
 
   <main>
-    <!-- BLOQUE 1: Cuidado Facial (Video a la derecha, Texto a la izquierda) -->
-    <div class="scrolly-container" id="scrolly-wrapper-1">
-      <div class="scrolly-sticky">
-        
-        <!-- Capa de fondo con Canvas interactivo (derecha) -->
-        <div class="canvas-media-wrapper canvas-right" aria-hidden="true">
-          <div class="canvas-blend-container">
-            <canvas id="video-canvas-1" class="video-scrolly-canvas" width="1280" height="720"></canvas>
-          </div>
-        </div>
-
-        <!-- Capa de UI fija de información y metadatos laterales -->
-        <div class="scrolly-ui-layer">
-          <div class="scrolly-ui-container">
-            
-            <!-- Indicador sutil de progreso de scroll -->
-            <div class="scroll-progress-track" aria-hidden="true">
-              <div class="scroll-progress-bar" id="progress-bar-1"></div>
-            </div>
-
-            <!-- Metadatos de pie fijos -->
-            <footer class="hero-footer-meta">
-              <div class="meta-item">
-                <span class="meta-index" id="current-section-index-1">01 / 04</span>
-                <span class="meta-desc" id="current-section-desc-1">Diagnóstico facial &amp; armonía a medida</span>
-              </div>
-              <div class="meta-item meta-item-right">
-                <span class="meta-index">Est. 2026</span>
-                <span class="meta-desc">Alta dirección dérmica</span>
-              </div>
-            </footer>
-
-          </div>
-        </div>
-
-        <!-- Secciones de scroll por la izquierda -->
-        <div class="scrolly-sections sections-left">
-
-          <!-- SECCIÓN 1: Evaluación Personalizada -->
-          <section class="scrolly-section active" id="section-1" data-index="1" data-meta="Diagnóstico facial &amp; armonía a medida">
-            <div class="section-content-col">
-              <h1 class="section-title">
-                Evaluación<br>
-                <em>personalizada.</em>
-              </h1>
-
-              <div class="hero-cta-wrapper">
-                <a href="#section-2" class="cta-button primary" id="cta-edicion">
-                  <span class="cta-label">Más información</span>
-                  <span class="cta-arrow" aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </section>
-
-          <!-- SECCIÓN 2: Limpieza Facial -->
-          <section class="scrolly-section" id="section-2" data-index="2" data-meta="Higiene profunda &amp; renovación epidérmica">
-            <div class="section-content-col">
-              <h2 class="section-title">
-                Limpieza<br>
-                <em>facial.</em>
-              </h2>
-
-              <p class="section-description">
-                Higiene profunda, extracción controlada y renovación epidérmica avanzada para devolver a la piel su pureza y luminosidad natural.
-              </p>
-
-              <div class="hero-cta-wrapper">
-                <a href="#" class="cta-subtle" id="cta-facial">
-                  <span class="cta-label">Más información</span>
-                  <span class="cta-arrow" aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </section>
-
-          <!-- SECCIÓN 3: Medicina Estética -->
-          <section class="scrolly-section" id="section-3" data-index="3" data-meta="Equilibrio biomimético &amp; precisión médica">
-            <div class="section-content-col">
-              <h2 class="section-title">
-                Medicina<br>
-                <em>estética.</em>
-              </h2>
-
-              <p class="section-description">
-                Tratamientos médicos no invasivos con enfoque biomimético para armonizar facciones, restaurar vitalidad y potenciar tu belleza auténtica.
-              </p>
-
-              <div class="hero-cta-wrapper">
-                <a href="#" class="cta-subtle" id="cta-medicina">
-                  <span class="cta-label">Más información</span>
-                  <span class="cta-arrow" aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </section>
-
-          <!-- SECCIÓN 4: Protocolos Inyectables Avanzados -->
-          <section class="scrolly-section" id="section-4" data-index="4" data-meta="Bioestimulación celular &amp; alta definición">
-            <div class="section-content-col">
-              <h2 class="section-title">
-                Protocolos<br>
-                <em>inyectables avanzados.</em>
-              </h2>
-
-              <p class="section-description">
-                Bioestimulación dérmica y técnicas inyectables de alta gama para regenerar la estructura celular, recuperar firmeza y definir contornos con máxima sutileza.
-              </p>
-
-              <div class="hero-cta-wrapper">
-                <a href="#section-5" class="cta-subtle" id="cta-sueroterapia">
-                  <span class="cta-label">Más información</span>
-                  <span class="cta-arrow" aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </section>
-
-        </div>
-
-      </div>
-    </div>
-
-    <!-- BLOQUE 2: Cuerpo, Capilar & Terapias (Video a la izquierda, Texto a la derecha) -->
-    <div class="scrolly-container" id="scrolly-wrapper-2">
-      <div class="scrolly-sticky">
-        
-        <!-- Capa de fondo con Canvas interactivo (izquierda) -->
-        <div class="canvas-media-wrapper canvas-left" aria-hidden="true">
-          <div class="canvas-blend-container">
-            <canvas id="video-canvas-2" class="video-scrolly-canvas" width="1280" height="720"></canvas>
-          </div>
-        </div>
-
-        <!-- Capa de UI fija de información y metadatos laterales -->
-        <div class="scrolly-ui-layer">
-          <div class="scrolly-ui-container">
-            
-            <!-- Indicador sutil de progreso de scroll -->
-            <div class="scroll-progress-track" aria-hidden="true">
-              <div class="scroll-progress-bar" id="progress-bar-2"></div>
-            </div>
-
-            <!-- Metadatos de pie fijos (Bloque 2: índice activo a la derecha) -->
-            <footer class="hero-footer-meta">
-              <div class="meta-item">
-                <span class="meta-index">Est. 2026</span>
-                <span class="meta-desc">Medicina regenerativa</span>
-              </div>
-              <div class="meta-item meta-item-right">
-                <span class="meta-index" id="current-section-index-2">01 / 04</span>
-                <span class="meta-desc" id="current-section-desc-2">Bioestimulación folicular y regeneración celular</span>
-              </div>
-            </footer>
-
-          </div>
-        </div>
-
-        <!-- Secciones de scroll por la derecha -->
-        <div class="scrolly-sections sections-right">
-
-          <!-- SECCIÓN 5: Regeneración Capilar -->
-          <section class="scrolly-section active" id="section-5" data-index="1" data-meta="Bioestimulación folicular y regeneración celular">
-            <div class="section-content-col">
-              <h2 class="section-title">
-                Regeneración<br>
-                <em>capilar.</em>
-              </h2>
-
-              <p class="section-description">
-                Terapia celular avanzada y bioestimulación folicular de precisión para densificar, frenar la caída y reactivar la vitalidad capilar desde la raíz.
-              </p>
-
-              <div class="hero-cta-wrapper">
-                <a href="#section-6" class="cta-button primary" id="cta-capilar">
-                  <span class="cta-label">Más información</span>
-                  <span class="cta-arrow" aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </section>
-
-          <!-- SECCIÓN 6: Terapias Intravenosas -->
-          <section class="scrolly-section" id="section-6" data-index="2" data-meta="Nutrición endovenosa y optimización metabólica">
-            <div class="section-content-col">
-              <h2 class="section-title">
-                Terapias<br>
-                <em>intravenosas.</em>
-              </h2>
-
-              <p class="section-description">
-                Infusiones biológicas personalizadas con antioxidantes, oligoelementos y complejos vitamínicos para restaurar la energía celular y la vitalidad cutánea.
-              </p>
-
-              <div class="hero-cta-wrapper">
-                <a href="#section-7" class="cta-subtle" id="cta-intravenosas">
-                  <span class="cta-label">Más información</span>
-                  <span class="cta-arrow" aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </section>
-
-          <!-- SECCIÓN 7: Tratamientos Corporales -->
-          <section class="scrolly-section" id="section-7" data-index="3" data-meta="Remodelación no invasiva y reafirmación tisular">
-            <div class="section-content-col">
-              <h2 class="section-title">
-                Tratamientos<br>
-                <em>corporales.</em>
-              </h2>
-
-              <p class="section-description">
-                Protocolos médicos de remodelación corporal y tonificación de tejido conectivo con tecnología clínica no invasiva de última generación.
-              </p>
-
-              <div class="hero-cta-wrapper">
-                <a href="#section-8" class="cta-subtle" id="cta-corporales">
-                  <span class="cta-label">Más información</span>
-                  <span class="cta-arrow" aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </section>
-
-          <!-- SECCIÓN 8: Controles y Retoques -->
-          <section class="scrolly-section" id="section-8" data-index="4" data-meta="Seguimiento médico y armonización continua">
-            <div class="section-content-col">
-              <h2 class="section-title">
-                Controles &amp;<br>
-                <em>retoques.</em>
-              </h2>
-
-              <p class="section-description">
-                Evaluación continua de evolución clínica y ajustes milimétricos personalizados para garantizar una armonía duradera y resultados naturales.
-              </p>
-
-              <div class="hero-cta-wrapper">
-                <a href="https://clinicaesteticarosse.site.agendapro.com/cl/sucursal/438769" target="_blank" rel="noopener noreferrer" class="cta-subtle" id="cta-retoques">
-                  <span class="cta-label">Más información</span>
-                  <span class="cta-arrow" aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </section>
-
-        </div>
-
-      </div>
-    </div>
-
-    <!-- SECCIÓN 3: Radiofrecuencia Facial & Corporal con Video de Fondo -->
-    <section class="rf-section" id="section-radiofrecuencia">
+    <!-- BLOQUE 1: Cuidado Facial (Imagen fija a la derecha, Scroll normal a la izquierda) -->
+    <div class="hero-showcase-container" id="hero-wrapper-1">
       
-      <!-- Video de fondo sin música con superposición blanca -->
-      <div class="rf-video-bg-wrapper" aria-hidden="true">
-        <video class="rf-bg-video" id="rf-video" autoplay muted loop playsinline preload="auto" src="radiofrecuencia.mp4">
-          <source src="radiofrecuencia.mp4" type="video/mp4">
-        </video>
-        <div class="rf-video-overlay"></div>
+      <!-- Capa de fondo con Imagen fija (derecha: marcas en cuello y rostro) -->
+      <div class="hero-media-wrapper" aria-hidden="true">
+        <div class="hero-media-sticky">
+          <div class="canvas-blend-container hero-image-blend">
+            <img src="1.jpg" alt="Rossé Diagnóstico Facial y Marcaje Estético" class="hero-static-image" id="hero-img-1" loading="eager">
+          </div>
+        </div>
       </div>
 
-      <!-- Contenedor y tarjeta de contenido editorial centrado -->
-      <div class="rf-content-container">
-        <div class="rf-content-card">
+      <!-- Capa de UI fija de información y metadatos laterales -->
+      <div class="hero-ui-layer">
+        <div class="scrolly-ui-container">
           
-          <div class="hero-tag rf-tag" role="doc-subtitle">
-            <span class="tag-bullet" aria-hidden="true"></span>
-            <span class="tag-text">Tecnología Térmica Avanzada</span>
+          <!-- Indicador sutil de progreso de scroll -->
+          <div class="scroll-progress-track" aria-hidden="true">
+            <div class="scroll-progress-bar" id="progress-bar-1"></div>
           </div>
 
-          <h2 class="rf-title">
-            Radiofrecuencia<br>
-            <em>médica facial.</em>
+          <!-- Metadatos de pie fijos -->
+          <footer class="hero-footer-meta">
+            <div class="meta-item">
+              <span class="meta-index" id="current-section-index-1">01 / 04</span>
+              <span class="meta-desc" id="current-section-desc-1">Diagnóstico facial &amp; armonía a medida</span>
+            </div>
+            <div class="meta-item meta-item-right">
+              <span class="meta-index">Est. 2026</span>
+              <span class="meta-desc">Alta dirección dérmica</span>
+            </div>
+          </footer>
+
+        </div>
+      </div>
+
+      <!-- Secciones con scroll normal por la izquierda -->
+      <div class="hero-sections-flow">
+
+        <!-- SECCIÓN 1: Evaluación Personalizada -->
+        <section class="hero-flow-section active" id="section-1" data-index="1" data-meta="Diagnóstico facial &amp; armonía a medida">
+          <div class="section-content-col">
+            <h1 class="section-title">
+              Evaluación<br>
+              <em>personalizada.</em>
+            </h1>
+
+            <div class="hero-cta-wrapper">
+              <a href="#section-2" class="cta-button primary" id="cta-edicion">
+                <span class="cta-label">Más información</span>
+                <span class="cta-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 2: Limpieza Facial -->
+        <section class="hero-flow-section" id="section-2" data-index="2" data-meta="Higiene profunda &amp; renovación epidérmica">
+          <div class="section-content-col">
+            <h2 class="section-title">
+              Limpieza<br>
+              <em>facial.</em>
+            </h2>
+
+            <p class="section-description">
+              Higiene profunda, extracción controlada y renovación epidérmica avanzada para devolver a la piel su pureza y luminosidad natural.
+            </p>
+
+            <div class="hero-cta-wrapper">
+              <a href="#section-3" class="cta-subtle" id="cta-facial">
+                <span class="cta-label">Más información</span>
+                <span class="cta-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 3: Medicina Estética -->
+        <section class="hero-flow-section" id="section-3" data-index="3" data-meta="Equilibrio biomimético &amp; precisión médica">
+          <div class="section-content-col">
+            <h2 class="section-title">
+              Medicina<br>
+              <em>estética.</em>
+            </h2>
+
+            <p class="section-description">
+              Tratamientos médicos no invasivos con enfoque biomimético para armonizar facciones, restaurar vitalidad y potenciar tu belleza auténtica.
+            </p>
+
+            <div class="hero-cta-wrapper">
+              <a href="#section-4" class="cta-subtle" id="cta-medicina">
+                <span class="cta-label">Más información</span>
+                <span class="cta-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 4: Protocolos Inyectables Avanzados -->
+        <section class="hero-flow-section" id="section-4" data-index="4" data-meta="Bioestimulación celular &amp; alta definición">
+          <div class="section-content-col">
+            <h2 class="section-title">
+              Protocolos<br>
+              <em>inyectables avanzados.</em>
+            </h2>
+
+            <p class="section-description">
+              Bioestimulación dérmica y técnicas inyectables de alta gama para regenerar la estructura celular, recuperar firmeza y definir contornos con máxima sutileza.
+            </p>
+
+            <div class="hero-cta-wrapper">
+              <a href="#scrolly-wrapper-2" class="cta-subtle" id="cta-sueroterapia">
+                <span class="cta-label">Ver tratamientos corporales &amp; capilares</span>
+                <span class="cta-arrow" aria-hidden="true">↓</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+    <!-- BLOQUE 2: Cuerpo, Capilar & Terapias (Imagen fija a la izquierda, 4 Títulos con iconos a la derecha) -->
+    <section class="services-block-container" id="scrolly-wrapper-2">
+      
+      <!-- Imagen fija a la izquierda (manteniendo la imagen original de la sección) -->
+      <div class="services-media-wrapper" aria-hidden="true">
+        <div class="canvas-blend-container services-image-blend">
+          <img src="frames2/frame_0001.webp" alt="Rossé Medicina Regenerativa y Tratamientos" class="services-static-image" id="services-img-2" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Contenedor editorial a la derecha con los 4 títulos e iconos -->
+      <div class="services-content-wrapper" id="section-5">
+        <div class="services-content-card">
+          
+          <div class="hero-tag" role="doc-subtitle">
+            <span class="tag-bullet" aria-hidden="true"></span>
+            <span class="tag-text">Medicina Regenerativa &amp; Corporal</span>
+          </div>
+
+          <h2 class="section-title services-main-title">
+            Protocolos<br>
+            <em>avanzados.</em>
           </h2>
 
-          <p class="rf-lead">
-            La radiofrecuencia es un tratamiento estético no invasivo que utiliza energía térmica controlada para estimular las capas profundas de la piel. Su principal acción es activar la producción de colágeno y elastina, generando un efecto reafirmante y regenerador progresivo.
-          </p>
+          <div class="services-titles-list">
 
-          <div class="rf-divider" aria-hidden="true"></div>
-
-          <h3 class="rf-subtitle">
-            En pieles maduras, sus beneficios son especialmente visibles:
-          </h3>
-
-          <ul class="rf-benefits-list">
-            <li class="rf-benefit-item">
-              <span class="rf-bullet" aria-hidden="true">•</span>
-              <span>Mejora la firmeza y tonicidad</span>
-            </li>
-            <li class="rf-benefit-item">
-              <span class="rf-bullet" aria-hidden="true">•</span>
-              <span>Atenúa líneas de expresión y flacidez</span>
-            </li>
-            <li class="rf-benefit-item">
-              <span class="rf-bullet" aria-hidden="true">•</span>
-              <span>Redefine el contorno facial</span>
-            </li>
-            <li class="rf-benefit-item">
-              <span class="rf-bullet" aria-hidden="true">•</span>
-              <span>Aporta luminosidad y mejor textura</span>
-            </li>
-            <li class="rf-benefit-item">
-              <span class="rf-bullet" aria-hidden="true">•</span>
-              <span>Estimula la regeneración celular de forma segura</span>
-            </li>
-          </ul>
-
-          <p class="rf-conclusion">
-            El resultado es una piel más firme, revitalizada y naturalmente rejuvenecida, sin alterar tu expresión.
-          </p>
-
-          <div class="rf-cta-wrapper">
-            <a href="https://clinicaesteticarosse.site.agendapro.com/cl/sucursal/438769" target="_blank" rel="noopener noreferrer" class="cta-button primary" id="cta-agenda-rf">
-              <span class="cta-label">Agenda tu atención</span>
-              <span class="cta-arrow" aria-hidden="true">→</span>
+            <!-- Título 1: Regeneración Capilar -->
+            <a href="https://clinicaesteticarosse.site.agendapro.com/cl/sucursal/438769" target="_blank" rel="noopener noreferrer" class="service-item-link" id="section-capilar">
+              <div class="service-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="service-icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                  <path d="M12 12c-1.5 2-2 3.5-1 5s3.5 1.5 2.5 4"/>
+                </svg>
+              </div>
+              <div class="service-title-wrap">
+                <span class="service-title-text">Regeneración capilar</span>
+              </div>
+              <span class="service-arrow" aria-hidden="true">→</span>
             </a>
+
+            <!-- Título 2: Terapias Intravenosas -->
+            <a href="https://clinicaesteticarosse.site.agendapro.com/cl/sucursal/438769" target="_blank" rel="noopener noreferrer" class="service-item-link" id="section-intravenosas">
+              <div class="service-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="service-icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v4m-3-2h6"/>
+                  <rect x="7" y="7" width="10" height="13" rx="3"/>
+                  <path d="M10 12h4M12 10v4"/>
+                </svg>
+              </div>
+              <div class="service-title-wrap">
+                <span class="service-title-text">Terapias intravenosas</span>
+              </div>
+              <span class="service-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Título 3: Tratamientos Corporales -->
+            <a href="https://clinicaesteticarosse.site.agendapro.com/cl/sucursal/438769" target="_blank" rel="noopener noreferrer" class="service-item-link" id="section-corporales">
+              <div class="service-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="service-icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 4c2.5 1 7.5 1 10 0M6 9c3 1.5 9 1.5 12 0M8 15c1.5 2 6.5 2 8 0M7 20c2.5-1 7.5-1 10 0"/>
+                  <circle cx="12" cy="12" r="9"/>
+                </svg>
+              </div>
+              <div class="service-title-wrap">
+                <span class="service-title-text">Tratamientos corporales</span>
+              </div>
+              <span class="service-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Título 4: Controles y Retoques -->
+            <a href="https://clinicaesteticarosse.site.agendapro.com/cl/sucursal/438769" target="_blank" rel="noopener noreferrer" class="service-item-link" id="section-retoques">
+              <div class="service-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="service-icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M9 12.5l2 2 4.5-4.5"/>
+                </svg>
+              </div>
+              <div class="service-title-wrap">
+                <span class="service-title-text">Controles &amp; retoques</span>
+              </div>
+              <span class="service-arrow" aria-hidden="true">→</span>
+            </a>
+
           </div>
 
         </div>
+      </div>
+
+    </section>
+
+    <!-- SECCIÓN 3: Experiencia Clínica & Protocolos en Video (video1 y video2) -->
+    <section class="clinic-videos-section" id="section-experiencia">
+      <div class="clinic-videos-container">
+        
+        <!-- Encabezado editorial centrado -->
+        <div class="clinic-videos-header">
+          <div class="hero-tag" role="doc-subtitle">
+            <span class="tag-bullet" aria-hidden="true"></span>
+            <span class="tag-text">Procedimientos en Vivo</span>
+          </div>
+
+          <h2 class="section-title clinic-videos-title">
+            Experiencia clínica,<br>
+            <em>resultados auténticos.</em>
+          </h2>
+
+          <p class="clinic-videos-desc">
+            Conoce de cerca la dedicación, técnica y precisión médica que aplicamos en cada tratamiento dentro de nuestra clínica en Concepción.
+          </p>
+        </div>
+
+        <!-- Grilla de los 2 videos verticales en formato Showcase -->
+        <div class="clinic-videos-grid">
+          
+          <!-- Video 1 -->
+          <article class="video-card">
+            <div class="video-frame">
+              <video class="showcase-video" autoplay muted loop playsinline preload="metadata">
+                <source src="video1.MP4" type="video/mp4">
+              </video>
+              <div class="video-badge" aria-label="Atención Médica Rossé">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span>Atención Médica Rossé</span>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3 class="video-info-title">Precisión &amp; Protocolo</h3>
+              <p class="video-info-desc">Técnica médica personalizada y aplicación minuciosa paso a paso.</p>
+            </div>
+          </article>
+
+          <!-- Video 2 -->
+          <article class="video-card">
+            <div class="video-frame">
+              <video class="showcase-video" autoplay muted loop playsinline preload="metadata">
+                <source src="video2.MP4" type="video/mp4">
+              </video>
+              <div class="video-badge" aria-label="Alta Dirección Dérmica">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span>Alta Dirección Dérmica</span>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3 class="video-info-title">Armonía &amp; Vitalidad</h3>
+              <p class="video-info-desc">Cuidado integral enfocado en resaltar tu belleza con naturalidad.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- CTA inferior de la sección -->
+        <div class="clinic-videos-cta">
+          <a href="https://clinicaesteticarosse.site.agendapro.com/cl/sucursal/438769" target="_blank" rel="noopener noreferrer" class="cta-button primary" id="cta-videos-agenda">
+            <span class="cta-label">Agenda tu evaluación clínica</span>
+            <span class="cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: Conoce a Nuestro Director & Equipo Clínico -->
+    <section class="team-section" id="section-director">
+      <div class="team-container">
+        
+        <!-- Tarjeta Profesional: Dr. Gerardo Cid -->
+        <article class="professional-card">
+          
+          <!-- Columna Imagen (Izquierda) -->
+          <div class="professional-media-col">
+            <div class="professional-image-wrapper">
+              <img src="dr-gerardo-cid-480.webp" 
+                   alt="Dr. Gerardo Cid — Cirujano Dentista y Director de Clínica Rossé" 
+                   class="professional-img" 
+                   loading="lazy">
+              <div class="professional-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span>Director de Clínica ROSSÉ</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Información (Derecha) -->
+          <div class="professional-content-col">
+            
+            <div class="hero-tag professional-tag" role="doc-subtitle">
+              <span class="tag-bullet" aria-hidden="true"></span>
+              <span class="tag-text">Conoce a nuestro director</span>
+            </div>
+
+            <header class="professional-header">
+              <h2 class="professional-name">
+                Dr. Gerardo<br>
+                <em>Cid.</em>
+              </h2>
+              <p class="professional-role">
+                Cirujano dentista y especialista en estética facial
+              </p>
+              <p class="professional-institution">
+                Director de Clínica ROSSÉ
+              </p>
+            </header>
+
+            <div class="professional-bio">
+              <p>
+                Odontólogo con 8 años de experiencia clínica, dedicado a la armonización orofacial y al rejuvenecimiento facial. Mi enfoque combina el conocimiento anatómico, el criterio clínico y la planificación personalizada para lograr resultados naturales, armónicos y acordes a las características de cada paciente.
+              </p>
+              <blockquote class="professional-quote">
+                «Creo en una estética responsable, sustentada en la evidencia científica, la precisión técnica y una atención cercana, donde cada tratamiento responde a las necesidades y expectativas particulares del paciente.»
+              </blockquote>
+            </div>
+
+            <div class="professional-cta-wrapper">
+              <a href="https://clinicaesteticarosse.site.agendapro.com/cl/sucursal/438769" target="_blank" rel="noopener noreferrer" class="cta-button primary" id="cta-director-agenda">
+                <span class="cta-label">Agenda con Dr. Gerardo Cid</span>
+                <span class="cta-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+
+          </div>
+
+        </article>
+
+        <!-- Tarjeta Profesional: Dariam Venegas Gomez -->
+        <article class="professional-card" id="card-dariam-venegas">
+          
+          <!-- Columna Imagen (Izquierda) -->
+          <div class="professional-media-col">
+            <div class="professional-image-wrapper">
+              <img src="dariam-venegas-480.webp" 
+                   alt="Dariam Venegas Gomez — Enfermera Dermoestética en Clínica Rossé" 
+                   class="professional-img" 
+                   loading="lazy">
+              <div class="professional-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span>Enfermera Dermoestética</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Información (Derecha) -->
+          <div class="professional-content-col">
+            
+            <div class="hero-tag professional-tag" role="doc-subtitle">
+              <span class="tag-bullet" aria-hidden="true"></span>
+              <span class="tag-text">Conoce a nuestro equipo</span>
+            </div>
+
+            <header class="professional-header">
+              <h2 class="professional-name">
+                Dariam<br>
+                <em>Venegas Gomez.</em>
+              </h2>
+              <p class="professional-role">
+                Enfermera dermoestética
+              </p>
+              <p class="professional-institution">
+                Clínica ROSSÉ
+              </p>
+            </header>
+
+            <div class="professional-bio">
+              <p>
+                Su enfoque está centrado en el cuidado integral de la piel, combinando tratamientos dermoestéticos con una atención cercana y personalizada.
+              </p>
+              <p>
+                Entre sus servicios se encuentran limpiezas faciales, dermaplaning, mesoterapia facial y capilar, plasma rico en plaquetas, sueroterapia, HIFU 12D, peeling y exosomas.
+              </p>
+              <blockquote class="professional-quote">
+                «Su objetivo es contribuir a mejorar la calidad, textura y apariencia de la piel, considerando las necesidades particulares de cada paciente.»
+              </blockquote>
+            </div>
+
+            <div class="professional-cta-wrapper">
+              <a href="https://clinicaesteticarosse.site.agendapro.com/cl/sucursal/438769" target="_blank" rel="noopener noreferrer" class="cta-button primary" id="cta-dariam-agenda">
+                <span class="cta-label">Agenda con Dariam Venegas</span>
+                <span class="cta-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+
+          </div>
+
+        </article>
+
       </div>
     </section>
 

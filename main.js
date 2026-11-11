@@ -256,70 +256,96 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // Instanciar los dos bloques de Scrollytelling
-  const chapter1 = createScrollyChapter({
-    wrapperId: 'scrolly-wrapper-1',
-    canvasId: 'video-canvas-1',
-    progressBarId: 'progress-bar-1',
-    metaIndexId: 'current-section-index-1',
-    metaDescId: 'current-section-desc-1',
-    framesDir: 'frames',
-    totalFrames: 160,
-    sectionsSelector: '.scrolly-section'
-  });
+  // --------------------------------------------------------------------------
+  // HERO: Scroll Normal, Imagen Fija y Sincronización de Menú / Metadatos
+  // --------------------------------------------------------------------------
+  const heroWrapper = document.getElementById('hero-wrapper-1');
+  const heroSections = document.querySelectorAll('.hero-flow-section');
+  const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+  const heroProgressBar = document.getElementById('progress-bar-1');
+  const metaIndex1 = document.getElementById('current-section-index-1');
+  const metaDesc1 = document.getElementById('current-section-desc-1');
 
-  const chapter2 = createScrollyChapter({
-    wrapperId: 'scrolly-wrapper-2',
-    canvasId: 'video-canvas-2',
-    progressBarId: 'progress-bar-2',
-    metaIndexId: 'current-section-index-2',
-    metaDescId: 'current-section-desc-2',
-    framesDir: 'frames2',
-    totalFrames: 160,
-    sectionsSelector: '.scrolly-section'
-  });
+  function updateHeroOnScroll() {
+    if (!heroWrapper || !heroSections.length) return;
+    const rect = heroWrapper.getBoundingClientRect();
+    const windowH = window.innerHeight;
+
+    // Progreso del Hero durante el scroll normal
+    const totalDist = heroWrapper.offsetHeight - windowH;
+    if (totalDist > 0) {
+      const scrolled = -rect.top;
+      const progress = Math.max(0, Math.min(1, scrolled / totalDist));
+      if (heroProgressBar) {
+        heroProgressBar.style.width = `${(progress * 100).toFixed(1)}%`;
+      }
+    }
+
+    // Identificar si estamos dentro del Hero o más abajo
+    const servicesBlock = document.getElementById('scrolly-wrapper-2');
+    const servicesRect = servicesBlock ? servicesBlock.getBoundingClientRect() : null;
+
+    if (servicesRect && servicesRect.top <= windowH * 0.45) {
+      // El usuario ya avanzó a la segunda sección: quitar activo del menú hero
+      navLinks.forEach((link) => link.classList.remove('active'));
+      return;
+    }
+
+    // Identificar la sección dominante en pantalla dentro del Hero
+    const threshold = windowH * 0.45;
+    let activeSec = heroSections[0];
+
+    heroSections.forEach((sec) => {
+      const sRect = sec.getBoundingClientRect();
+      if (sRect.top <= threshold && sRect.bottom >= threshold) {
+        activeSec = sec;
+      }
+    });
+
+    if (activeSec) {
+      const idx = activeSec.dataset.index;
+      const meta = activeSec.dataset.meta;
+      const id = activeSec.id;
+
+      // Actualizar metadatos inferiores del Hero
+      if (metaIndex1) metaIndex1.textContent = `0${idx} / 04`;
+      if (metaDesc1) metaDesc1.textContent = meta || '';
+
+      // Actualizar clase 'active' en el menú de navegación superior
+      navLinks.forEach((link) => {
+        if (link.getAttribute('href') === `#${id}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+  }
 
   function handleScrollAll() {
-    const h = window.innerHeight;
-    if (chapter1) chapter1.onScroll(h);
-    if (chapter2) chapter2.onScroll(h);
+    updateHeroOnScroll();
   }
 
   window.addEventListener('scroll', handleScrollAll, { passive: true });
   window.addEventListener('resize', handleScrollAll, { passive: true });
 
-  document.addEventListener('visibilitychange', () => {
-    const isVis = !document.hidden;
-    if (chapter1) chapter1.setVisibility(isVis);
-    if (chapter2) chapter2.setVisibility(isVis);
-    if (isVis) handleScrollAll();
-  });
+  // Navegación suave por anclas (#section-X, #scrolly-wrapper-2, etc.)
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    const href = anchor.getAttribute('href');
+    if (!href || href === '#') {
+      anchor.addEventListener('click', (e) => e.preventDefault());
+      return;
+    }
 
-  // Navegación suave por anclas (#section-X)
-  document.querySelectorAll('a[href^="#section-"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
-      const targetId = anchor.getAttribute('href');
-      const targetSec = document.querySelector(targetId);
+      const targetSec = document.querySelector(href);
       if (!targetSec) return;
 
-      const wrapper = targetSec.closest('.scrolly-container');
-      if (!wrapper) {
-        targetSec.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-
-      const secIndex = parseInt(targetSec.dataset.index, 10);
-      const rect = wrapper.getBoundingClientRect();
-      const maxScroll = wrapper.offsetHeight - window.innerHeight;
-
-      // Puntos de anclaje óptimos para cada sección dentro de su wrapper
-      const targetPoints = [0.05, 0.36, 0.65, 0.92];
-      const targetProgress = targetPoints[secIndex - 1] ?? 0;
-      const targetScrollY = window.scrollY + rect.top + targetProgress * maxScroll;
-
+      const navHeight = 80;
+      const targetTop = targetSec.getBoundingClientRect().top + window.scrollY - navHeight;
       window.scrollTo({
-        top: targetScrollY,
+        top: Math.max(0, targetTop),
         behavior: 'smooth'
       });
     });
@@ -335,20 +361,40 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inicializar estado inicial
   handleScrollAll();
 
-  // Asegurar reproducción del video de fondo de radiofrecuencia (sin audio)
-  const rfVideo = document.getElementById('rf-video') || document.querySelector('.rf-bg-video');
-  if (rfVideo) {
-    rfVideo.muted = true;
-    rfVideo.defaultMuted = true;
-    const playPromise = rfVideo.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        const tryPlay = () => {
-          rfVideo.play().catch(() => {});
-        };
-        window.addEventListener('scroll', tryPlay, { once: true, passive: true });
-        window.addEventListener('click', tryPlay, { once: true });
+  // Control inteligente y reproducción eficiente para los videos clínicos (video1 y video2)
+  const showcaseVideos = document.querySelectorAll('.showcase-video');
+  if (showcaseVideos.length) {
+    showcaseVideos.forEach((video) => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+
+      // Click o tap para pausar o reproducir
+      video.addEventListener('click', () => {
+        if (video.paused) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
       });
+    });
+
+    if ('IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.2 });
+
+      showcaseVideos.forEach((video) => videoObserver.observe(video));
+    } else {
+      // Fallback para navegadores antiguos
+      showcaseVideos.forEach((video) => video.play().catch(() => {}));
     }
   }
 });
